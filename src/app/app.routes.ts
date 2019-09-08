@@ -16,7 +16,7 @@ export const ROUTES: Routes = [
     { path: 'restaurants', component: RestaurantsComponent }
     ,
 
-    { path: 'restaurants/:id ', component: RestaurantDetailComponent }
+    { path: 'restaurants/:id', component: RestaurantDetailComponent }
 
 
 

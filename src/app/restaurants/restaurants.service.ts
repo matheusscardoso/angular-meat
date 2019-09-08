@@ -13,18 +13,21 @@ export class RestaurantsService {
 
     constructor(private http: Http) { }
 
-    getRestaurants(): Observable<Restaurant[]>{ 
-        
+    getRestaurants(): Observable<Restaurant[]> {
+
         return this.http.get(`${MEAT_API}/restaurants`)
             .map(response => response.json())
             .catch(ErrorHandler.handleError)
 
-        // return this.http.get( MEAT_API + '/restaurants');
+
     }
 
-    getRestaurantById(id: string) : Observable<Restaurant>{
+    getRestaurantById(id: string): Observable<Restaurant> {
+
         return this.http.get(`${MEAT_API}/restaurants/${id}`)
-            .map(response => response.json());
+            .map(response => response.json())
+            .catch(ErrorHandler.handleError);
+
     }
 
 }
