@@ -19,7 +19,7 @@
         </div>
         <!-- /.box-header -->
         <div class="box-body">
-          <div class="col-sm-3 col-xs-12">
+          <div class="col-sm-3 col-xs-12" *ngIf="restaurant">
             <!-- <img
               class="box-img-detail"
               src="assets/img/restaurants/breadbakery.png"
@@ -51,11 +51,15 @@
         <!-- /.box-body --> 
         <div class="box-footer detail-footer">
           
-          <a class="pull-left detail-active" href="#">
+          <a class="pull-left" 
+            routerLinkActive="detail-active" 
+            [routerLink]="['menu']">
               <!-- href="detail-restaurant.html"> -->
             Menu
           </a>
-          <a class="pull-right" href="#">
+          <a class="pull-right"  
+            routerLinkActive="detail-active"  
+            [routerLink]="['reviews']">
               <!-- href="detail-restaurant-reviews.html"> -->
             Avaliações
           </a>
@@ -66,7 +70,8 @@
   </div>
 
   <div class="row">
-    <mt-menu></mt-menu>
+    <!-- <mt-menu></mt-menu> -->
+    <router-outlet></router-outlet>
   </div>
 </section>
 
