@@ -1,24 +1,36 @@
-import { Injectable } from '@angular/core';
+import { CartItem } from "./cart-item.model";
+import { MenuItem } from "../menu-item/menu-item.model";
 
-@Injectable()
 export class ShoppingCartService {
 
 
-    items: any[]
+    items: CartItem[] = []
 
-    addItem(item:any)
-    {
-
-    }
-
-    removeItem(item: any){
+    clear(item: CartItem) {
 
     }
 
-    total() : number {
-        return 0
+    addItem(item: MenuItem) {
+        let foundItem = this.items.find((itm) => itm.menuItem.id === item.id)
+
+        if (foundItem) {
+            foundItem.quantity = foundItem.quantity + 1;
+        }
+        else {
+            this.items.push(new CartItem(item))
+        }
     }
 
-    video 51 --- 03:21
+    removeItem(item: CartItem) {
+        this.items.splice(this.items.indexOf(item), 1);
+    }
+
+    total(): number {
+        return this.items
+            .map(item => item.value())
+            .reduce((prev, value) => prev + value,0);
+    }
+
+
 
 }
