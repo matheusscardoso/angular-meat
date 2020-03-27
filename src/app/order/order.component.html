@@ -60,7 +60,12 @@
           </div>
         </div>
         <div class="col-sm-2 col-xs-6">
-          <div class="form-group has-success">
+          <div class="form-group"
+          
+          [class.has_error]="templateVariable__iptNumber.valid && (templateVariable__iptNumber.dirty) || (templateVariable__iptNumber.touched)"
+          
+          
+          >
             <label class="control-label sr-only" for="inputSuccess"
               ><i class="fa fa-check"></i> Número</label
             >
@@ -70,10 +75,15 @@
               id="inputSuccess"
               placeholder="Número"
               ngModel name="number"
+              #templateVariable__iptNumber="ngModel"
               autocomplete="off"
               required
             />
-            <span class="help-block"><i class="fa fa-check"></i> Ok</span>
+            <span 
+              *ngIf='templateVariable__iptNumber.valid'
+            class="help-block">
+              <i class="fa fa-check"></i> Ok
+            </span>
           </div>
         </div>
         <div class="col-sm-4 col-xs-6">
