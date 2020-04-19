@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core'
 
 @Component({
   selector: 'mt-menu-item',
@@ -6,10 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styles: []
 })
 export class MenuItemComponent implements OnInit {
+  constructor () { }
 
-  constructor() { }
-
-  ngOnInit() {
+  ngOnInit () {
   }
-
 }

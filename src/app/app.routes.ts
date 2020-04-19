@@ -1,3 +1,5 @@
+import { MenuComponent } from './restaurant-detail/menu/menu.component'
+import { ReviewsComponent } from './restaurant-detail/reviews/reviews.component'
 import { RestaurantDetailComponent } from './restaurant-detail/restaurant-detail.component'
 import { HomeComponent } from './home/home.component'
 import { Routes } from '@angular/router'
@@ -19,7 +21,23 @@ const rotas = [
   },
   {
     path: 'restaurants/:id',
-    component: RestaurantDetailComponent
+    component: RestaurantDetailComponent,
+    children: [
+      {
+        path: '',
+        redirectTo: 'menu',
+        pathMatch: 'full'
+      },
+      {
+        path: 'menu',
+        component: MenuComponent
+      },
+      {
+        path: 'reviews',
+        component: ReviewsComponent
+
+      }
+    ]
   }
 ]
 
